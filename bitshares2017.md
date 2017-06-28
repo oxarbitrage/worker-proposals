@@ -42,7 +42,7 @@ The difference between now and my first period is the experience, when I started
 
 The next front for the worker will be at the bsips(https://github.com/bitshares/bsips). This proposals are not so immediate as issues, they require more planning and implementation is most of the time a lot longer than issues in general. 
 This are extremely important as this could be real changers of the community, a whole new industry can be included into bitshares after a good bsip. 
-Worker will participate in the discussions of new bsips and do the implementation of new features described in the this proposals if needed. If another dev is in charge of the changes I will help and support with all my knowledge and dedication.
+Worker will participate in the discussions of new bsips and do the implementation of new features described in the this proposals where  needed. If another dev is in charge of the changes I will help and support with all my knowledge and dedication.
 
 As an example there a few ideas being discussed by the community where the worker will participate like the possible EOS integration of bitshares, the dividend feature to coins, bitasset recovery, just to name a few of currently discussed.
 
