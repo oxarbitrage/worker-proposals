@@ -139,7 +139,7 @@ Worker updates will be posted to bitshares talk forum every weekend with previou
 Conclusion.
 -----------
 
-The first half of 2017 was a great success in all aspects of this company, it is a great  time to be here and be part of the second half of this year in bitshares, very promising. I can promise hard work, full dedication, transparency and honesty.
+The first half of 2017 was a great success in all aspects of this company, it is a great  time to be here and be part of the second half of in bitshares, very promising. I can guarantee hard work, full dedication, transparency and honesty.
 
 
 
