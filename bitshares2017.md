@@ -115,7 +115,7 @@ https://github.com/xeroc/worker-proposals/blob/master/2017-02.md#worker
 
 Worker payment per day: 2187 bts
 
-Money to worker will be sent only in bitusd at the specified price(of 1600 usd / week) and the rest will be burned back to the chain.
+It is important to note here that worker will not be receive 2187 bts per day but actually 1600 bitusd per week(228.5 usd per day). The multisig scheme in worker account `alfredo-worker` will only send the correct amount of money. Rest of bts used to protect market fluctuations will be burned back to the chain.
 
 My list of escrows will be:
 
