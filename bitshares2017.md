@@ -30,7 +30,7 @@ Worker tasks.
 
 Worker will move in every aspect of the technical spectrum where he will get required, main focus will be at the following areas:
 
-1- Github issues:
+###1- Github issues:
 
 It is extremly important to be after this issues all the time. Any serious technical problem/suggestion is added to github issues of the bitshares core. As new clients dapps are developed - more features/api calls are needed from the core, as the blockchain increases in size - alternative ways are needed to run nodes with less resources, as more business uses bitshares as a backend - more bugs are discovered and so on.
 
@@ -38,7 +38,7 @@ This issues are in my opinion the most important channel of technical discussion
 
 The difference between now and my first period is the experience, when I started every issue was a huge challenge. Without previous graphene experience it was a lot of work to make every test, new feature, understand single concepts. This time, I am  a lot more mature, I have developed a method to work on core code, I know where is everything, I know all the terminology, I am doing better code, etcetera. All this allows me get into the problem a lot faster and more efficiently than before.
 
-2- BSIPS
+###2- BSIPS
 
 The next front for the worker will be at the bsips(https://github.com/bitshares/bsips). This proposals are not so immediate as issues, they require more planning and implementation is most of the time a lot longer than issues in general. 
 This are extremely important as this could be real changers of the community, a whole new industry can be included into bitshares after a good bsip. 
@@ -46,7 +46,7 @@ Worker will participate in the discussions of new bsips and do the implementatio
 
 As an example there a few ideas being discussed by the community where the worker will participate like the possible EOS integration of bitshares, the dividend feature to coins, bitasset recovery, just to name a few of currently discussed.
 
-3- Client side applications and the explorer.
+###3- Client side applications and the explorer.
 
 In order to know what the core needs there are 2 options. One is to check the github issues, bsips, forum threads and chats and solve problems other users are facing. Good enough but there is also another way more active, this is, develop relative simple client side applications that interact to the bitshares backend to see what is needed, bugs, improvements from first hand.
 
@@ -64,7 +64,7 @@ Worker will be in charge of finishing and maintaining the explorer. Release all 
 
 The explorer will be the first of other client side applications, this can go from trading strategies, wallets, interfaces and any kind of dapp the community decide we must have.
 
-4- Help and documentation
+###4- Help and documentation
 
 I take notes of everything i do, this is very valuable to add wiki pages into bitshares:
 
@@ -72,11 +72,11 @@ https://github.com/bitshares/bitshares-core/wiki
 
 And to help other community members in setups, solutions, questions in general. The different communication channels(telegram, forum) of the bitshares community will be attended by this worker in everything possible while writing new documents to the wiki that can help new devs, new nodemasters and other enthusiasts achieve different tasks that without documentation may be very hard and misleading.
 
-5- Hardfork planning
+###5- Hardfork planning
 
 Some issues and changes will require a hardfork in the bitshares chain. In my first phase I avoided all kind of issues that required hardfork. In this new phase all the changes needing hardfork will be grouped and discussed in order to have a roadmap on the exact steps we will have to consider in the next hardfork.
 
-6- Basic maintence.
+###6- Basic maintence.
 
 When first worker was voted out, the worker from @vikram was also voted down. He was in charge of basic maintenance of the bitshares core. This included approving pull requests made by all the devs that submitted changes to the bitshares core repo.
 His work was very important. By now, he will be focusing on other project outside bitshares. I don't have his skills and I but I could be handling some of his tasks until at least some other worker gets approved for this admin task.
