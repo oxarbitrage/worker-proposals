@@ -28,7 +28,7 @@ Measuring worker performance by the number of github issues that were closed is 
 Worker tasks.
 -------------
 
-Worker will move in every aspect of the technical spectrum where he will get required, main focus will be at the following areas:
+Worker will move in every aspect of the technical spectrum where his services are required, main focus will be at the following areas:
 
 ### 1- Github issues:
 
