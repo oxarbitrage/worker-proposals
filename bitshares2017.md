@@ -1,5 +1,5 @@
-Bitshares Core Developer Worker proposal
-========================================
+Bitshares Core Developer Worker proposal(1.14.55)
+=================================================
 
 Intro.
 ------
