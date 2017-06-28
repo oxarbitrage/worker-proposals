@@ -62,7 +62,7 @@ https://bitsharestalk.org/index.php/topic,24508.0.html
 
 Worker will be in charge of finishing and maintaining the explorer. Release all code involved under MIT. A roadmap for it will be created, documentation on how to install, use, etc.
 
-The explorer will be the first of other client side applications, this can go from trading strategies, wallets, interfaces and any kind of dapp the community decide we must have.
+The explorer will be the first of other client side applications, this can go from market making, feed providers, wallets, interfaces  to do specific tasks in the chain and any kind of dapp the community decide we must have.
 
 ### 4- Help and documentation
 
