@@ -116,6 +116,7 @@ https://github.com/xeroc/worker-proposals/blob/master/2017-02.md#worker
 Worker payment per day: 2187 bts
 
 Start date: 2017-07-12
+
 End date: 2018-01-08(start date + 180 days)
 
 It is important to note here that worker will not be receive 2187 bts per day but actually 1600 bitusd per week(228.5 usd per day). The multisig scheme in worker account `alfredo-worker` will only send the correct exact amount of money to worker. Rest of bts used to protect from market fluctuations will be burned back to the chain.
