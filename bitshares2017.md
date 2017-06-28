@@ -11,10 +11,10 @@ https://bitsharestalk.org/index.php/topic,23698.0.html
 
 This was a 6 months contract paid in BTS. As the price of BTS increased considerable the worker was voted out among with other workers before natural end. Fair enough. To avoid this situation this new worker is in bitusd. This will be explained in detail in the "The worker payment." section.
 
-Since the very beginning, discovering how the bitshares community operates, I had plans to add a new worker proposal myself after the first one expires. Several personal reasons for this, the main ones are:
+Since the very beginning, discovering how the bitshares community operates, always had plans to add a new worker proposal myself after the first one expires. Several personal reasons for this, the main ones are:
 
 - I love to work in the bitshares core, graphene code is my passion. I want to spend my full time working in this project without the need of going somewhere else for more income. The intellectual challenge is for me here at bitshares, if I can make a living from it then there is no better place for me to be.
-- I like the idea of not having a single boss/company, I prefer to be driven by the shareholders in the direction the Bitshares DAC needs.
+- I like the idea of not having a single individual/company, I prefer to be driven by the shareholders in the direction the Bitshares DAC needs.
 - I have good relation with all the community members I ever met, never a problem since I started apart from normal technical discussions and exchange of different opinions. It is real fun and exiting to be in this community every day.
 - I am a strong defender of the blockchain technology as a way to change the world in pretty much every aspect for better.
 
@@ -132,7 +132,10 @@ Worker Updates.
 
 Worker updates will be posted to bitshares talk forum every weekend with previous week work.
 
+Conclusion.
+-----------
 
+The first half of 2017 was a great success in all aspects of this company, it is a great  time to be here and be part of the second half of this year in bitshares, very promising. I can promise hard work, full dedication, transparency and honesty.
 
 
 
