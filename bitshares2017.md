@@ -104,6 +104,7 @@ https://github.com/xeroc/worker-proposals/blob/master/2017-02.md#worker
 1600 USD/4 weeks/40 h = 40 usd/h
 
 4.10 = settlement price at the moment of writting.
+
 2.5 = to cover market fluctuations.
 
 6400 * 4.10 = 26240.0 
