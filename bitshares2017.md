@@ -101,21 +101,21 @@ Payment will be in usd with method developed by @xeroc:
 https://github.com/xeroc/worker-proposals/blob/master/2017-02.md#worker
 
 
-1600 USD/4 weeks/40 h = 40 usd/h
+1600 USD per week/40 hs = 40 usd/h
 
-4.10 = settlement price at the moment of writting.
+4.10 = settlement price of bitusd/bts at the moment of writting.(2017-06-28)
 
-2.5 = to cover market fluctuations.
+2.5 = multiplier to cover market fluctuations and borrow at 2.5x collateral if needed.
 
-6400 * 4.10 = 26240.0 
+6400 usd/month * 4.10 = 26240.0
 
-26240 * 2.5 = 65600 
+26240 * 2.5 = 65600 bts / month
 
 65600 / 30 = 2186.6667 
 
 Worker payment per day: 2187 bts
 
-It is important to note here that worker will not be receive 2187 bts per day but actually 1600 bitusd per week(228.5 usd per day). The multisig scheme in worker account `alfredo-worker` will only send the correct amount of money. Rest of bts used to protect market fluctuations will be burned back to the chain.
+It is important to note here that worker will not be receive 2187 bts per day but actually 1600 bitusd per week(228.5 usd per day). The multisig scheme in worker account `alfredo-worker` will only send the correct exact amount of money to worker. Rest of bts used to protect from market fluctuations will be burned back to the chain.
 
 My list of escrows will be:
 
