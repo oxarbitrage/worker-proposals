@@ -126,8 +126,8 @@ My list of trsuted community escrows will be:
 - `chainsquad`
 - `dev.bitsharesblocks`
 - `elmato`
-- …
-- …
+- `fox` 
+- `lin9uxis`
 
 Scripts used for claim, burn, etc will be posted into this repo. 
 
