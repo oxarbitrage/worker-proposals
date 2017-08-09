@@ -6,6 +6,8 @@ from bitshares.price import Price
 from bitshares.market import Market
 from bitshares.amount import Amount
 
+from getpass import getpass
+
 account = "alfredo-worker"
 proposer = "oxarbitrage.a699"
 vesting_id = "1.13.1609"
@@ -20,7 +22,7 @@ set_shared_bitshares_instance(bitshares)
 market = Market("USD:BTS")
 price = market.ticker()["quoteSettlement_price"]
 
-bitshares.wallet.unlock("")
+bitshares.wallet.unlock(getpass())
 vesting = Vesting(vesting_id)
 
 print("Claiming Vesting Balance: %s" % vesting.claimable)
