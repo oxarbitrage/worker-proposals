@@ -35,15 +35,15 @@ print("Buying as much bitUSD at price up to %s or %s" % (
 ))
 market.buy(
     price * 0.9,
-    Amount(6400, "USD"),
+    Amount(3200, "USD"),
     killfill=True,
     account=account
 )
 
-print("Worker alfredo payment - month 1")
+print("Worker alfredo payment - 15 days")
 bitshares.transfer(
     "oxarbitrage.a699",
-    6400, "USD",
+    3200, "USD",
     account=account
 )
 
