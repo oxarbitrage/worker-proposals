@@ -10,7 +10,7 @@ from getpass import getpass
 
 account = "alfredo-worker"
 proposer = "oxarbitrage.a699"
-vesting_id = "1.13.1609"
+vesting_id = "1.13.1608"
 
 bitshares = BitShares(
     nobroadcast=False,
