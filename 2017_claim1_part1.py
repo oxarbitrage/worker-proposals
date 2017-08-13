@@ -31,3 +31,5 @@ bitshares.vesting_balance_withdraw(
     amount=vesting.claimable,
     account=account
 )
+
+pprint(bitshares.broadcast())
