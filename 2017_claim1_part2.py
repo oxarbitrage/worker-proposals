@@ -31,7 +31,7 @@ print("Buying as much bitUSD at price up to %s or %s" % (
 market.buy(
     price * 0.9,
     Amount(3200, "USD"),
-    killfill=True,
+    killfill=False,
     account=account
 )
 
