@@ -84,6 +84,6 @@ This can be improved and the limitation removed by formatting in an ES friendly 
 
 - Another challenge was how we were going to send data from the plugin to the database. ES does not have a native c++ library to interact, there are some repos that attempt to do this but we are trying to add the less stuff possible into our project specially from unknown sources. The recommended way to index and search data in ES is use the RPC endpoints. In order for us to send queries frrom the plugin we selected CURL(https://github.com/curl/curl). The reason is it is a standard to make queries, very versatile, open souce active project.
 
-- Other challenges we may want to add here ?
+- Everything will need to be converted to a `c_str()` in order to be sent by curl to ES. We convert everything we need to `std::string` and then do `c_str()` over it at send time. 
 
 ## Installation
