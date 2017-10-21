@@ -51,6 +51,8 @@ ES bulk format is one line of metadata and the line of data itself, so 5000 is a
 This values are available as plugins options to the user to change, so if a change in ....
 [add data and plugin options]
 
+The optimal number of docs to bulk is hardware dependent this is why we added it as an option for changing it at start time.
+
 The name of the index for us will be `graphene`
 
 ### Differences from SQL and other relational databases - Why a flatworld ?
@@ -62,9 +64,22 @@ Another very good feature of elasticsearch is that it just index anything you se
 
 Es encourage the denormalization(https://www.elastic.co/guide/en/elasticsearch/guide/current/denormalization.html) as the best opption to store data, this clearly suit our case.
 
+### Challenges
 
-The optimal number of
+After we know we are going to store everything in a flatline the execution is easy, create a vector of bulk operations and send them to the database when the number is greater than our limit of documents. However there are 2 main issues we need to overcame:
 
-Two main problems were found:
+- Graphene uses some array of different types that ES will not index. For example the `op` fields of a transaction block are of the form:
 
-- Inde
+`[type, {op}]`
+
+This is an array of 2 different types, ES will not index: https://www.elastic.co/guide/en/elasticsearch/reference/current/array.html -> Arrays with a mixture of datatypes are not supported: [ 10, "some string" ]
+
+To make it even worst, there is stuff inside the op itself that also use this kind of format like the `owner_keys` inside an `account_create` operation. This is something like `[thereshold, key]` where thereshold is a number and key a string.
+
+There might be other cases i am not aware of yet.
+
+In order to get op type and op separated we used some searches and extracted them. We need them boths. In the case of arrays inside op we simply regex them and remove them. As a result, the user will not be able to search lets say by `active_key`.
+
+This can be improved and the limitation removed by formatting in an ES friendly way instead of just replacing the conflics with empty stuff.
+
+- 
