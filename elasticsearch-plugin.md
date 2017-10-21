@@ -1,4 +1,4 @@
-# ElasticSearch Plugin v0.1
+# ElasticSearch Plugin v1
 
 The document explains motivations, rationale and technical aspects of a new plugin created for bitshares to store account history data into an elasticsearch database.
 
@@ -82,4 +82,8 @@ In order to get op type and op separated we used some searches and extracted the
 
 This can be improved and the limitation removed by formatting in an ES friendly way instead of just replacing the conflics with empty stuff.
 
-- 
+- Another challenge was how we were going to send data from the plugin to the database. ES does not have a native c++ library to interact, there are some repos that attempt to do this but we are trying to add the less stuff possible into our project specially from unknown sources. The recommended way to index and search data in ES is use the RPC endpoints. In order for us to send queries frrom the plugin we selected CURL(https://github.com/curl/curl). The reason is it is a standard to make queries, very versatile, open souce active project.
+
+- Other challenges we may want to add here ?
+
+## Installation
