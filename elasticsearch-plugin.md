@@ -9,20 +9,21 @@ There are 2 main problems this plugin tries to solve
 - The amount of RAM needed to run a full node. Current options for this are basically store account history: yes/no, store some of the account history, track history for specific accounts only. Plugin allows to have a full node without the amount of RAM required in current implementation.
 - The number of requests in regards to new api calls to search account history. Elasticsearch plugin will allow users to search anything quering directly into the database without the need of developing API calls for every case.
 
-More details on how we overcame this 2 points will be explained throw the docs.
+More details on how we overcame this 2 points will be explained throw this doc.
+
+Additionally we are after a secure way to store non error full account data. The huge amount of operations data involved in bitshares blockchain and the way it is serialized makes this a new challenge.
 
 ## The database selection
 
-So shy elasticsearch ? When i started coding this solution i had not enough arguments to answer this, it was recommended by one of our core developers(@peter conrad). My initial thinking was actually that any database will work to remove history from RAM so i didn't worried too much about what will be. 
-After i was already over i started to see the benefits of elasticsearch and was able to convkience myself this is a great choice, here are some key points about why it suits perfect for our needs:
+Elastic search was selected for the main following reasons:
 
-- Elasticsearch(ES) index json objects. Graphene technology use json objects for operations, blocks, all kind of data and elasticsearch works naturally with them(with osme exeptions as we may see later). This is a great advantage, a database that can index json objects.
-- The database is fast, speed and industrial oriented, this is great for our project.
-- ES can scale by the use of syncronized nodes. I had no chance yet to study the details of this as they were not needed yet to build the plugin but this can be of great use in the future.
-- ES is easy to install and to start indexing. Indexing can be done by rpc by calling endpoints with data. We made the coice of doing this with curl.
-- Is open source.
-- ES recomments a flatworld philosofy and recommends to store everything in a single line to speed indexing and searching. This is exactly what we need.
-- others ?
+- open source.
+- fast.
+- index oriented.
+- easy to install and start using.
+- send data from c++ using curl.
+- scalability and decentralized nodes of data.
+
 
 ## Technical
 
@@ -55,7 +56,7 @@ The optimal number of docs to bulk is hardware dependent this is why we added it
 
 The name of the index for us will be `graphene`
 
-### Differences from SQL and other relational databases - Why a flatworld ?
+### Differences from SQL and other relational databases - Why a flatworld / redundancy / denormalization
 
 When i first looked at elasticsearch one of the first thing i had to figure out was how to relate one data with the other. Coming mainly from a sql world i was first atracted to make several containers and relate them. To my surprise the recommendation in ES is to actually store everything alltogether like in a huge table. 
 This makes sense, iun a real world application when saving lets say users data some may have a cell phone while others don't; in our case some ops may have for example an  `issuer` fields while others just don't. It doesn't matter, the number of "columns" will be big and each op will fill where it correspond.
@@ -76,8 +77,22 @@ This is an array of 2 different types, ES will not index: https://www.elastic.co
 
 To make it even worst, there is stuff inside the op itself that also use this kind of format like the `owner_keys` inside an `account_create` operation. This is something like `[thereshold, key]` where thereshold is a number and key a string.
 
-There might be other cases i am not aware of yet.
+But as i was digging into the data i found more problems elasticsearch will have with our data like votes in the form "1:1" are not recognized, number data is sometimes "" and others without them between many others that ES will refuse to index without proper preproseccion and mappgin.
 
+The bulk endpoint of ES will skip failing lines and index sucessfull, as the blockchain moves to present in a replay the number of parsing issues became more and more evident.
+
+So we toke a new approach. We are going to index the common fields(block number, block time, account, op type, etc) and store in text field the operation itself with all the problems it may have.
+This guarantees the data imports with very small preprocessing and with 100% accuracy. No data is lost, ALL the data is in the database.
+
+But this haves a price, it is we cant index by any field as for example "referer" of all the asset_creation operations. This means we cant fast search for this but we still have the data and there are several workarounds, the one that technically satisies more is to make a visitor to the op to index the fields we want.
+
+
+
+
+
+
+
+///////
 In order to get op type and op separated we used some searches and extracted them. We need them boths. In the case of arrays inside op we simply regex them and remove them. As a result, the user will not be able to search lets say by `active_key`.
 
 This can be improved and the limitation removed by formatting in an ES friendly way instead of just replacing the conflics with empty stuff.
