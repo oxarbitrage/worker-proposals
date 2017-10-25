@@ -36,10 +36,10 @@ And now what elasticsearch plugin attempts to do:
 
 - with every signed block arraiving to the plugin the ops are extracted from it, just as in account_history.
 - create indexes ohi and ath and store current op there just as account history do. this a temp indexation of 1 op only that is done to remain constant with the previous numbers used as id(1.11.X and 2.9.X).
-- send ath and ohi plus additional block data into elasticsearch(actually we send them in bulks not one by one, ill explain that in the next section).
+- send ath and ohi plus additional block data and visitor data(lini to visitor data) into elasticsearch(actually we send them in bulks not one by one - replay and bulk links).
 - remove everything in the compatibility temporal indexes expect for current operation. This way the indexes always have just 1 item and dont waste any ram.
 
-### Replay and bulks
+### Replay and _bulk
 
 As mentioned we dont send to elasticsearch the operations one by one, this is because in a replay the number of ops will be so big that performance will decrease drastically and time to be in sync will be too much.
 For this reason we use the elasticsearch bulk api and send by default 5000 lines when we are in replay and downgrade this to 10 lines after we are in sync.
