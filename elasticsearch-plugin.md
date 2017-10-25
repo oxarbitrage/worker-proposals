@@ -55,5 +55,12 @@ The name of the index for us will be `graphene`
 
 ### Accessing data inside operations
 
+There are cases where data coming from account transaction history index, operation history index and block data is not enough. We may want to index fields inside operations themselves like the fees the asset id or the amount of transfer to make fast queries into them. 
+
+Data inside operations is saved as a text fields into elasticsearch, this means that we can't fast search into them as the data is not indexed, we can, still search by other data and filter converting the op text to json i nclient side.
+
+To workaround the limitation it is available a visitor that can be turned on/off by the command line. Something in common all ops have is a fee field with asset_id and amount. In current plugin version when visitor is on this 2 values will be saved meaning clients can know total chain fees collected in real time, total fees in asset, fees by op among other things. This will be explained in the EXAMPLES section.
+
+As a poc we also added amount and asset_id of transfer operations to ilustrate how easy is to index more data for any competent graphene developer.
 
 ## Installation
