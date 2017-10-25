@@ -6,12 +6,10 @@ The document explains motivations, rationale and technical aspects of a new plug
 
 There are 2 main problems this plugin tries to solve
 
-- The amount of RAM needed to run a full node. Current options for this are basically store account history: yes/no, store some of the account history, track history for specific accounts only. Plugin allows to have a full node without the amount of RAM required in current implementation.
-- The number of requests in regards to new api calls to search account history. Elasticsearch plugin will allow users to search anything quering directly into the database without the need of developing API calls for every case.
+- The amount of RAM needed to run a full node. Current options for this are basically store account history: yes/no, store some of the account history, track history for specific accounts, etc. Plugin allows to have all the account history data without the amount of RAM required in current implementation.
+- The number of github issues in regards to new api calls to lookup account history in different ways. Elasticsearch plugin will allow users to search account history quering directly into the database without the need of developing API calls for every case.
 
-More details on how we overcame this 2 points will be explained throw this doc.
-
-Additionally we are after a secure way to store non error full account data. The huge amount of operations data involved in bitshares blockchain and the way it is serialized makes this a new challenge.
+Additionally we are after a secure way to store error free full account data. The huge amount of operations data involved in bitshares blockchain and the way it is serialized makes this a big challenge.
 
 ## The database selection
 
@@ -24,21 +22,20 @@ Elastic search was selected for the main following reasons:
 - send data from c++ using curl.
 - scalability and decentralized nodes of data.
 
-
 ## Technical
 
-The elasticsearch plugin is a copy of account_history_plugin where not needeed stuff was removed and indexation to boost indexes were replaced by indexing into elastic.
+The elasticsearch plugin is a copy of account_history_plugin skeleton where not needeed stuff was removed saving to objects(to RAM) was replaced by saving into elastic.
 
 Here is how the current account_history plugin works basically:
 - with every signed block arraiving to the plugin the ops are extracted from it.
 - each op is added to ohi(operation history index) and to ath(account transaction history index).
 - both indexes keep growing as new block gets in.
-- with the memory reduction techniques currently available the 2 indexes can remove early ops by account reducing ram size.
+- with the memory reduction techniques currently available the 2 indexes can remove early ops of accounts reducing ram size.
 
 And now what elasticsearch plugin attempts to do:
 
 - with every signed block arraiving to the plugin the ops are extracted from it, just as in account_history.
-- create indexes ohi and ath and store current op there just as account history do. this a temp indexation of 1 op only that is done to remain compatible with the previous numbers used as id(1.11.X and 2.9.X).
+- create indexes ohi and ath and store current op there just as account history do. this a temp indexation of 1 op only that is done to remain constant with the previous numbers used as id(1.11.X and 2.9.X).
 - send ath and ohi plus additional block data into elasticsearch(actually we send them in bulks not one by one, ill explain that in the next section).
 - remove everything in the compatibility temporal indexes expect for current operation. This way the indexes always have just 1 item and dont waste any ram.
 
@@ -56,49 +53,7 @@ The optimal number of docs to bulk is hardware dependent this is why we added it
 
 The name of the index for us will be `graphene`
 
-### Differences from SQL and other relational databases - Why a flatworld / redundancy / denormalization
+### Accessing data inside operations
 
-When i first looked at elasticsearch one of the first thing i had to figure out was how to relate one data with the other. Coming mainly from a sql world i was first atracted to make several containers and relate them. To my surprise the recommendation in ES is to actually store everything alltogether like in a huge table. 
-This makes sense, iun a real world application when saving lets say users data some may have a cell phone while others don't; in our case some ops may have for example an  `issuer` fields while others just don't. It doesn't matter, the number of "columns" will be big and each op will fill where it correspond.
-
-Another very good feature of elasticsearch is that it just index anything you send without previous step, as new fields/columns are sent to index elasticsearch just add them to the "table" without the need of preporocessing(creating tables).
-
-Es encourage the denormalization(https://www.elastic.co/guide/en/elasticsearch/guide/current/denormalization.html) as the best opption to store data, this clearly suit our case.
-
-### Challenges
-
-After we know we are going to store everything in a flatline the execution is easy, create a vector of bulk operations and send them to the database when the number is greater than our limit of documents. However there are 2 main issues we need to overcame:
-
-- Graphene uses some array of different types that ES will not index. For example the `op` fields of a transaction block are of the form:
-
-`[type, {op}]`
-
-This is an array of 2 different types, ES will not index: https://www.elastic.co/guide/en/elasticsearch/reference/current/array.html -> Arrays with a mixture of datatypes are not supported: [ 10, "some string" ]
-
-To make it even worst, there is stuff inside the op itself that also use this kind of format like the `owner_keys` inside an `account_create` operation. This is something like `[thereshold, key]` where thereshold is a number and key a string.
-
-But as i was digging into the data i found more problems elasticsearch will have with our data like votes in the form "1:1" are not recognized, number data is sometimes "" and others without them between many others that ES will refuse to index without proper preproseccion and mappgin.
-
-The bulk endpoint of ES will skip failing lines and index sucessfull, as the blockchain moves to present in a replay the number of parsing issues became more and more evident.
-
-So we toke a new approach. We are going to index the common fields(block number, block time, account, op type, etc) and store in text field the operation itself with all the problems it may have.
-This guarantees the data imports with very small preprocessing and with 100% accuracy. No data is lost, ALL the data is in the database.
-
-But this haves a price, it is we cant index by any field as for example "referer" of all the asset_creation operations. This means we cant fast search for this but we still have the data and there are several workarounds, the one that technically satisies more is to make a visitor to the op to index the fields we want.
-
-
-
-
-
-
-
-///////
-In order to get op type and op separated we used some searches and extracted them. We need them boths. In the case of arrays inside op we simply regex them and remove them. As a result, the user will not be able to search lets say by `active_key`.
-
-This can be improved and the limitation removed by formatting in an ES friendly way instead of just replacing the conflics with empty stuff.
-
-- Another challenge was how we were going to send data from the plugin to the database. ES does not have a native c++ library to interact, there are some repos that attempt to do this but we are trying to add the less stuff possible into our project specially from unknown sources. The recommended way to index and search data in ES is use the RPC endpoints. In order for us to send queries frrom the plugin we selected CURL(https://github.com/curl/curl). The reason is it is a standard to make queries, very versatile, open souce active project.
-
-- Everything will need to be converted to a `c_str()` in order to be sent by curl to ES. We convert everything we need to `std::string` and then do `c_str()` over it at send time. 
 
 ## Installation
