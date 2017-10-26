@@ -155,3 +155,21 @@ The ES plugin have the following parameters passed by command line:
 - `elasticsearch-bulk-sync` - The number of lines(ops * 2) to send to database at syncronized state - default: `100` 
 - `elasticsearch-logs` - Save logs to database - default: `true`
 - `elasticsearch-visitor` - Index visitor additional inside op data - default: `true`
+
+### Starting node
+
+ES plugin is not active by default, we need to start it with the `plugins` parameter. An example of starting a node with ES plugin may be:
+
+`command to start here`
+
+### Checking if it is working
+
+A few minutes after the node start the first batch of 5000 ops will be inserted to the database. If you are in a desktop linux you may want to install https://github.com/mobz/elasticsearch-head and see the database from the web browser to make sure if it is working. This is optional.
+
+If you only have command line available you can query the database directly throw curl as:
+
+`sample database call, a count of all ops will be good.`
+
+**Important: Replay with ES plugin will be always slower than the "save to ram" `account_history_plugin` so expect to wait more to be in sync than usual.**
+
+
