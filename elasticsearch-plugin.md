@@ -135,7 +135,7 @@ Make sure ES is running, can start it by:
 
 ES will listen on localhost port 9200 `127.0.0.1:9200`
 
-Clone repo with elasticsearch plugin:
+Clone repo with elasticsearch plugin and install bitshares:
 
 ```
 git clone https://github.com/oxarbitrage/bitshares-core
