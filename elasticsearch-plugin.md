@@ -168,7 +168,27 @@ A few minutes after the node start the first batch of 5000 ops will be inserted 
 
 If you only have command line available you can query the database directly throw curl as:
 
-`sample database call, a count of all ops will be good.`
+```
+root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
+{
+    "query" : {
+        "bool" : { "must" : [{"match_all": {}}] }
+    }
+}
+'
+{
+  "count" : 360000,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "skipped" : 0,
+    "failed" : 0
+  }
+}
+root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# 
+```
+
+360000 records are inserted at this point in ES, means it is working.
 
 **Important: Replay with ES plugin will be always slower than the "save to ram" `account_history_plugin` so expect to wait more to be in sync than usual.**
 
@@ -239,6 +259,10 @@ After we solve some of the issues needed by the community and generating a frame
 Just as an example, it will be easy to index asset of trading operations by extending the visitor code of them. point 3 of https://github.com/bitshares/bitshares-core/issues/358 reqquest trading pair, can be solved by indexing the asset of the trading ops as mentioned.
 
 Remember ES already have all the needed info in the `op` text field of the `operation_history` object. Client can get all the ops of an account, loop throw them and convert the `op` string into json being able to filter by the asset or any other field needed. There is no need to index everything but it is possible.
+
+## Duplicates
+
+By using the `op_type` = `create` on each bulk line we send to the database and as we use an unique ID(ath id(2.9.X)) the plugin will not index any operation twice. If the node is on a replay, the plugin will start adding to database when it find a new record and never before. 
 
 ## The future
 
