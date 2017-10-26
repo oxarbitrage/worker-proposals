@@ -64,3 +64,61 @@ To workaround the limitation it is available a visitor that can be turned on/off
 As a poc we also added amount and asset_id of transfer operations to ilustrate how easy is to index more data for any competent graphene developer.
 
 ## Installation
+
+Basically there are 2 things you need: elasticsearch and curl for c++. elasticsearch need java so those are the 3 things you will need to have. The following are instructions tested in debian(ubuntu - mint) based linux versions.
+
+Install java:
+
+download the jre, add sudo to the start of the commands if installing from a non root user:
+
+`apt-get install default-jre`
+
+we are going to need the jdk too:
+
+`apt-get install default-jre`
+
+add repository to install oracle java8:
+
+in ubuntu:
+
+`add-apt-repository ppa:webupd8team/java` 
+
+in debian:
+
+`add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main"`
+
+then:
+`apt-get update`
+
+if you don't have add-apt-repository command you can install it by: 
+
+`apt-get install software-properties-common`
+
+install java 8:
+
+`apt-get install oracle-java8-installer`
+
+
+
+Install ES:
+
+Get the last version zip file at: https://www.elastic.co/downloads/elasticsearch
+
+Please do this as a non root user as ES will not run as root.
+
+download as: 
+
+`wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.3.zip`
+
+unzip:
+
+`unzip elasticsearch-5.6.3.zip`
+
+and run:
+
+```
+cd elasticsearch-5.6.3/
+./bin/elasticsearch
+```
+
+You can put this as a service, the binary haves a `--deamon` option, can run inside `screen` or any other option that suits you in order to keep the database running.  
