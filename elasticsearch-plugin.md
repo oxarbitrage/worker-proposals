@@ -67,7 +67,7 @@ As a poc we also added amount and asset_id of transfer operations to ilustrate h
 
 Basically there are 2 things you need: elasticsearch and curl for c++. elasticsearch need java so those are the 3 things you will need to have. The following are instructions tested in debian(ubuntu - mint) based linux versions.
 
-Install java:
+### Install java:
 
 download the jre, add sudo to the start of the commands if installing from a non root user:
 
@@ -98,9 +98,7 @@ install java 8:
 
 `apt-get install oracle-java8-installer`
 
-
-
-Install ES:
+### Install ES:
 
 Get the last version zip file at: https://www.elastic.co/downloads/elasticsearch
 
@@ -121,4 +119,8 @@ cd elasticsearch-5.6.3/
 ./bin/elasticsearch
 ```
 
-You can put this as a service, the binary haves a `--deamon` option, can run inside `screen` or any other option that suits you in order to keep the database running.  
+You can put this as a service, the binary haves a `--deamon` option, can run inside `screen` or any other option that suits you in order to keep the database running. 
+
+### Install curl
+
+
