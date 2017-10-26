@@ -240,9 +240,11 @@ Just as an example, it will be easy to index asset of trading operations by exte
 
 Remember ES already have all the needed info in the `op` text field of the `operation_history` object. Client can get all the ops of an account, loop throw them and convert the `op` string into json being able to filter by the asset or any other field needed. There is no need to index everything but it is possible.
 
+## The future
 
+Plugin aims to be included and be part bitshares-core project as a cheaper ram full node alternative to `account_history_plugin` while obtaining the benefits in quering the huge amounts of data present in the blockchain in a new way.
 
-
+Plugin should be improved in speed and performance by the dev community and active workers, some basic maintence will be needed if a new operation cames in(we need to add it to the visitor). Interested third parties can improve it for their own needs but i think Bitshares should do the basic maintence of this. 
 
 
 
