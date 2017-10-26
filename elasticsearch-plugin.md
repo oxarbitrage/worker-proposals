@@ -160,7 +160,7 @@ The ES plugin have the following parameters passed by command line:
 
 ES plugin is not active by default, we need to start it with the `plugins` parameter. An example of starting a node with ES plugin may be:
 
-`command to start here`
+`programs/witness_node/witness_node --data-dir data/my-blockprod --rpc-endpoint "127.0.0.1:8090" --plugins "witness elasticsearch market_history" --elasticsearch-bulk-replay 10000 --elasticsearch-logs true --elasticsearch-visitor true`
 
 ### Checking if it is working
 
