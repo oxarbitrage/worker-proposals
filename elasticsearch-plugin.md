@@ -123,4 +123,4 @@ You can put this as a service, the binary haves a `--deamon` option, can run ins
 
 ### Install curl
 
-
+`apt-get install libcurl4-openssl-dev`
