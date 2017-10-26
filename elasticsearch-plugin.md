@@ -172,4 +172,78 @@ If you only have command line available you can query the database directly thro
 
 **Important: Replay with ES plugin will be always slower than the "save to ram" `account_history_plugin` so expect to wait more to be in sync than usual.**
 
+## Usage
+
+After your node is in sync you are in posesion of a full node without the ram issues. A syncronized witness_node with ES will be using around X gigs of ram:
+
+[free command here with the witness to show]
+
+What client side apps can do with this new data is kind of unlimited to client developer imagination but lets check some real world examples to see the benefits of this new feature.
+
+### Get operations by account, time and operation type
+
+References:
+https://github.com/bitshares/bitshares-core/issues/358
+https://github.com/bitshares/bitshares-core/issues/413
+https://github.com/bitshares/bitshares-core/pull/405
+https://github.com/bitshares/bitshares-core/pull/379
+https://github.com/bitshares/bitshares-core/pull/430
+https://github.com/bitshares/bitshares-ui/issues/68
+
+This is one of the issues that has been requested constantly. It can be easily queried with ES plugin by doing:
+
+```
+command
+```
+
+more samples here ...
+
+### Get operations by account and block
+
+References:
+https://github.com/bitshares/bitshares-core/issues/61
+
+### Get operations by transaction hash
+
+Refs: https://github.com/bitshares/bitshares-core/pull/373
+
+## New stats
+
+After we solve some of the issues needed by the community and generating a framework for future issues of the same kind lets go a bit beyond and explore how rich is to have account data operations stored in ES in regards to stats. This are just a few samples.
+
+### Get total ops
+
+- get total ops by type.
+- get total ops in a period of time. 
+- get total ops by type inside a range of blocks.
+
+### Get speed data
+
+- ops per second
+- trxs per second
+
+### Get fee data
+
+- total collected fee
+- total colected fee for op type
+- total fees collected this month
+- total fee collected in asset
+
+### Transfer data
+
+- get amount transfered from account.
+- get 
+
+### More visitor code = more indexed data = more filters to use
+
+Just as an example, it will be easy to index asset of trading operations by extending the visitor code of them. point 3 of https://github.com/bitshares/bitshares-core/issues/358 reqquest trading pair, can be solved by indexing the asset of the trading ops as mentioned.
+
+Remember ES already have all the needed info in the `op` text field of the `operation_history` object. Client can get all the ops of an account, loop throw them and convert the `op` string into json being able to filter by the asset or any other field needed. There is no need to index everything but it is possible.
+
+
+
+
+
+
+
 
