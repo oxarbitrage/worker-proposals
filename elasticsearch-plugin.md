@@ -123,4 +123,6 @@ You can put this as a service, the binary haves a `--deamon` option, can run ins
 
 ### Install curl
 
+We need curl to send requests from the c++ plugin into the ES database:
+
 `apt-get install libcurl4-openssl-dev`
