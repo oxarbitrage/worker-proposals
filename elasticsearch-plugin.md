@@ -75,7 +75,7 @@ download the jre, add sudo to the start of the commands if installing from a non
 
 we are going to need the jdk too:
 
-`apt-get install default-jre`
+`apt-get install default-jdk`
 
 add repository to install oracle java8:
 
@@ -126,3 +126,22 @@ You can put this as a service, the binary haves a `--deamon` option, can run ins
 We need curl to send requests from the c++ plugin into the ES database:
 
 `apt-get install libcurl4-openssl-dev`
+
+## Running
+
+Make sure ES is running, can start it by:
+
+`./elasticsearch --daemonize`
+
+ES will listen on localhost port 9200 `127.0.0.1:9200`
+
+Clone repo with elasticsearch plugin:
+
+```
+git clone https://github.com/oxarbitrage/bitshares-core
+cd bitshares-core
+git checkout -t origin/elasticsearch
+git submodule update --init --recursive
+cmake -DBOOST_ROOT="$BOOST_ROOT" -DCMAKE_BUILD_TYPE=RelWithDebInfo .
+make
+```
