@@ -384,7 +384,108 @@ After we solve some of the issues needed by the community and generating a frame
 ### Get total ops
 
 - get total ops by type.
+```
+root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
+{
+    "query" : {
+        "bool" : { "must" : [{"term": { "account_history.account.keyword": "1.2.356589"}}, {"term": {"operation_type": "34"}}] }
+    }
+}
+'
+{
+  "count" : 1,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "skipped" : 0,
+    "failed" : 0
+  }
+}
+root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_search?pretty=true' -d '
+{
+    "query" : {
+        "bool" : { "must" : [{"term": { "account_history.account.keyword": "1.2.356589"}}, {"term": {"operation_type": "34"}}] }
+    }
+}
+'
+{
+  "took" : 11,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 1,
+    "max_score" : 15.487318,
+    "hits" : [
+      {
+        "_index" : "graphene",
+        "_type" : "data",
+        "_id" : "2.9.35275499",
+        "_score" : 15.487318,
+        "_source" : {
+          "account_history" : {
+            "id" : "2.9.35275499",
+            "account" : "1.2.356589",
+            "operation_id" : "1.11.34671393",
+            "sequence" : 6,
+            "next" : "2.9.35275470"
+          },
+          "operation_history" : {
+            "trx_in_block" : 1,
+            "op_in_trx" : 0,
+            "operation_results" : "[1,'1.14.55']",
+            "virtual_op" : 34694,
+            "op" : "[34,{'fee':{'amount':60698376,'asset_id':'1.3.0'},'owner':'1.2.356589','work_begin_date':'2017-07-12T00:00:00','work_end_date':'2018-01-08T00:00
+:00','daily_pay':218700000,'name':'Alfredo Garcia - Core Developer for the second half of 2017','url':'https://github.com/oxarbitrage/worker-proposals/blob/master/b
+itshares2017.md','initializer':[1,{'pay_vesting_period_days':1}]}]"
+          },
+          "operation_type" : 34,
+          "block_data" : {
+            "block_num" : 17824939,
+            "block_time" : "2017-06-28T20:32:30",
+            "trx_id" : ""
+          },
+          "fee_data" : {
+            "fee_asset" : "1.3.0",
+            "fee_amount" : "60698376"
+          },
+          "transfer_data" : {
+            "transfer_asset_id" : "1.3.0",
+            "transfer_amount" : "0"
+          }
+        }
+      }
+    ]
+  }
+}
+root@NC-PH-1346-07:~# 
+```
 - get total ops in a period of time. 
+
+root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
+{
+    "query" : {
+        "bool" : { "must" : [{"term": { "account_history.account.keyword": "1.2.356589"}}, {"term": {"operation_type": "0"}}, {"range": {"block_data.block_time": {"
+gte": "2017-01-01T00:00:00", "lte": "2017-09-01T00:00:00"}}}] }
+    }
+}
+'
+{
+  "count" : 4,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "skipped" : 0,
+    "failed" : 0
+  }
+}
+root@NC-PH-1346-07:~# 
+
+
 - get total ops by type inside a range of blocks.
 
 ### Get speed data
