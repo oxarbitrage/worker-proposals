@@ -194,9 +194,21 @@ root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core#
 
 ## Usage
 
-After your node is in sync you are in posesion of a full node without the ram issues. A syncronized witness_node with ES will be using around X gigs of ram:
+After your node is in sync you are in posesion of a full node without the ram issues. A syncronized witness_node with ES will be using less than 10 gigs of ram:
 
-[free command here with the witness to show]
+```
+ total          9817628K
+root@NC-PH-1346-07:~# pmap 2183
+```
+
+Compare against a tradtional full node:
+
+```
+ total         60522044K
+[bitshares@lantea ~]$
+```
+
+Please note start command was with `markets_history` plugin activated, the 
 
 What client side apps can do with this new data is kind of unlimited to client developer imagination but lets check some real world examples to see the benefits of this new feature.
 
