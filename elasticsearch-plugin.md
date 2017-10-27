@@ -208,7 +208,7 @@ Compare against a tradtional full node:
 [bitshares@lantea ~]$
 ```
 
-Please note start command was with `markets_history` plugin activated, the 
+Please note start command was with `markets_history` plugin activated, only account data should use even less than 10 gigs. 
 
 What client side apps can do with this new data is kind of unlimited to client developer imagination but lets check some real world examples to see the benefits of this new feature.
 
@@ -418,7 +418,9 @@ By using the `op_type` = `create` on each bulk line we send to the database and 
 
 Plugin aims to be included and be part bitshares-core project as a cheaper ram full node alternative to `account_history_plugin` while obtaining the benefits in quering the huge amounts of data present in the blockchain in a new way.
 
-Plugin should be improved in speed and performance by the dev community and active workers, some basic maintence will be needed if a new operation cames in(we need to add it to the visitor). Interested third parties can improve it for their own needs but i think Bitshares should do the basic maintence of this. 
+Plugin should be improved in speed and performance by the dev community and active workers, some basic maintence will be needed for example if a new operation cames in(we need to add it to the visitor). Interested third parties can improve it for their own needs but i think Bitshares should do the basic maintence of this.
+
+Market data plugin alternative is the next structure of objects we may want to move to ES. 
 
 
 
