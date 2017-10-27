@@ -11,7 +11,7 @@ There are 2 main problems this plug-in tries to solve:
 
 Additionally we are after a secure way to store error free full account data. The huge amount of operations data involved in bitshares blockchain and the way it is serialized makes this a big challenge.
 
-Even more, saving data will Elastic Search database(from now on: ES) will bring additional value to clients connected to the new full node with real time statistics and fast access to data.
+Even more, saving data to Elastic Search database(from now on: ES) will bring additional value to clients connected to the new full node with real time statistics and fast access to data.
 
 ## The database selection
 
