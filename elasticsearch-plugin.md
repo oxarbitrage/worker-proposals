@@ -139,10 +139,11 @@ ES will listen on localhost port 9200 `127.0.0.1:9200`
 Clone repo with elasticsearch plugin and install bitshares:
 
 ```
-git clone https://github.com/oxarbitrage/bitshares-core
+git clone https://github.com/bitshares/bitshares-core
 cd bitshares-core
-git checkout -t origin/elasticsearch
+git checkout -t origin/develop
 git submodule update --init --recursive
+BOOST_ROOT=$HOME/opt/boost_1_63_0
 cmake -DBOOST_ROOT="$BOOST_ROOT" -DCMAKE_BUILD_TYPE=RelWithDebInfo .
 make
 ```
