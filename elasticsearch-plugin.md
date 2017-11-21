@@ -122,6 +122,12 @@ cd elasticsearch-5.6.3/
 
 You can put this as a service, the binary haves a `--deamon` option, can run inside `screen` or any other option that suits you in order to keep the database running. 
 
+Please note ES does not run a the root user, if you are a root user you need to first make a normal user account by:
+
+`adduser elastic`
+
+After created: `su elastic`. Execute the `wget` and `unzip` commands from above as normal user. 
+
 ### Install curl
 
 We need curl to send requests from the c++ plugin into the ES database:
@@ -136,7 +142,7 @@ Make sure ES is running, can start it by:
 
 ES will listen on localhost port 9200 `127.0.0.1:9200`
 
-Clone repo with elasticsearch plugin and install bitshares:
+Clone repo and install bitshares:
 
 ```
 git clone https://github.com/bitshares/bitshares-core
