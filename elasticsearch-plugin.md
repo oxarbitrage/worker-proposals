@@ -126,7 +126,7 @@ Please note ES does not run a the root user, if you are a root user you need to 
 
 `adduser elastic`
 
-After created: `su elastic`. Execute the `wget` and `unzip` commands from above as normal user. 
+After created: `su elastic`. Execute the `wget` and `unzip` commands from above as normal user in created user home dir. 
 
 ### Install curl
 
