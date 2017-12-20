@@ -101,9 +101,9 @@ install java 8:
 
 ### Install ES:
 
-Get version 5.6 zip file at: https://www.elastic.co/downloads/elasticsearch
+Get version 5 file at: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.3.zip
 
-** Note ** Make plugin work with version 6
+**Note** Plugin dont currently work with elasticsearch last release, version 6.
 
 Please do this as a non root user as ES will not run as root.
 
