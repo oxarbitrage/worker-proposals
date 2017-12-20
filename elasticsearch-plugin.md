@@ -177,7 +177,7 @@ A few minutes after the node start the first batch of 5000 ops will be inserted 
 If you only have command line available you can query the database directly throw curl as:
 
 ```
-root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
+root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# curl -X GET 'http://localhost:9200/graphene-*/data/_count?pretty=true' -d '
 {
     "query" : {
         "bool" : { "must" : [{"match_all": {}}] }
@@ -196,9 +196,75 @@ root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# curl -X GET 'http://local
 root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# 
 ```
 
-360000 records are inserted at this point in ES, means it is working.
+360000 records are inserted at this point of the replay in ES, means it is working.
 
 **Important: Replay with ES plugin will be always slower than the "save to ram" `account_history_plugin` so expect to wait more to be in sync than usual.**
+
+A syncronized node will look like this(screen capture 20/12/2017):
+
+```
+root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene-*/data/_count?pretty=true' -d '
+{
+    "query" : {
+        "bool" : { "must" : [{"match_all": {}}] }
+    }
+}
+'
+{
+  "count" : 107156155,
+  "_shards" : {
+    "total" : 135,
+    "successful" : 135,
+    "skipped" : 0,
+    "failed" : 0
+  }
+}
+root@NC-PH-1346-07:~# 
+```
+
+## Indexes
+
+The plugin creates monthly indexes in the ES database, index names are as `graphene-2016-05` and contain all the operations made inside the monthly period.
+
+List your indexes as:
+
+```
+NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/_cat/indices' 
+yellow open logs             PvSvmtcFSCCF_-3HBjJaXg 5 1   358808 0   5.8gb   5.8gb
+yellow open graphene-2017-09 ZUUi5xeuTeSb7QPP1Pnk0A 5 1 11075939 0   8.4gb   8.4gb
+yellow open graphene-2017-04 HtCKnM_UTLyDWBR7-PopGQ 5 1  3316120 0   2.4gb   2.4gb
+yellow open graphene-2017-10 SAUFtI0CRx6MnISukeqA-Q 5 1  9326346 0   7.1gb   7.1gb
+yellow open graphene-2017-07 CTWIim51SZy0Ir55sjlT7w 5 1 17890903 0  12.8gb  12.8gb
+yellow open graphene-2017-01 sna676yfR1OT5ww9HRiVZw 5 1  1197124 0 917.7mb 917.7mb
+yellow open graphene-2016-06 FZ_FyTLwQCKObjKgLQcF3w 5 1   656358 0 473.9mb 473.9mb
+yellow open graphene-2017-03 Ogsw0PlbRAWeHRS86o4vTA 5 1  2167788 0   1.6gb   1.6gb
+yellow open graphene-2017-11 -9-oz-DRRTOMLdZVOUV5xw 5 1 14107174 0  10.8gb  10.8gb
+yellow open graphene-2017-02 ZE3LxFWkTeO7CBsxMMmIFQ 5 1  1104282 0 822.4mb 822.4mb
+yellow open graphene-2017-12 bZRFc5aLSlqbBMYEnKmF7Q 5 1  8758628 0     8gb     8gb
+yellow open graphene-2015-11 iXyIZkj_T0O-NjPxEf0L_A 5 1   301079 0 193.1mb 193.1mb
+yellow open graphene-2017-05 ipVA6yEKTH68nEucBIZP7w 5 1 10278394 0   7.5gb   7.5gb
+yellow open graphene-2017-08 Z2C_pciwQSevJzcl9kRhhQ 5 1  9916248 0   7.5gb   7.5gb
+yellow open graphene-2016-04 vtQSi-kdQ0OblRq2naPu-A 5 1   413798 0 297.4mb 297.4mb
+yellow open graphene-2016-12 hsohZ0cfTGSPPVWUM_Fgeg 5 1   917034 0 711.3mb 711.3mb
+yellow open graphene-2016-01 PzjbXCXFShCzZFyTBgv2IQ 5 1   372772 0 247.1mb 247.1mb
+yellow open graphene-2016-03 8j1yyLIeTUWXb6TZntqQhg 5 1   597461 0   431mb   431mb
+yellow open graphene-2016-08 6qBByeOPSkCDqWYrOR_qPg 5 1   551835 0 389.3mb 389.3mb
+yellow open graphene-2015-10 DTHVtNpIT2KAoMiO4-c61w 5 1   161004 0 122.2mb 122.2mb
+yellow open graphene-2017-06 Jei8GvRYSkif4zZ-V9mFRg 5 1 10795239 0   8.1gb   8.1gb
+yellow open .kibana          8q5behLlQRi_hxKSWurYDw 1 1        7 0  42.7kb  42.7kb
+yellow open graphene-2016-05 s7Ie2crTS_uismCP5U2dIQ 5 1   498493 0 353.4mb 353.4mb
+yellow open graphene-2016-07 7yx03R2hQX6XyOR8Sdu7ZA 5 1   609087 0 435.8mb 435.8mb
+yellow open graphene-2016-02 0SVSrhn3QK2AxWNv9NRASQ 5 1   468174 0 321.8mb 321.8mb
+yellow open graphene-2016-10 C28juWi8Rf-1A0h2YnShBw 5 1   416570 0 299.9mb 299.9mb
+yellow open graphene-2016-09 3rHI_5HFR3SFl9bhroL5EA 5 1   409164 0 296.1mb 296.1mb
+yellow open graphene-2015-12 aLlUxO_tSG-CMC3SPcFgkw 5 1   349985 0 222.4mb 222.4mb
+yellow open graphene-2016-11 i00upS94Ruii1zJYXI0S9Q 5 1   495556 0 367.3mb 367.3mb
+root@NC-PH-1346-07:~# 
+```
+
+If you dont see any index here then something is wrong with the bitshares-core node setup with elasticsearch plugin. Make sure you are running elasticsearch version 5.X.
+
+Todo: Make plugin work with version 5 of elasticsearch too.
 
 ## Usage
 
