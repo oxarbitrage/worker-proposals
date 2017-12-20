@@ -101,7 +101,9 @@ install java 8:
 
 ### Install ES:
 
-Get the last version zip file at: https://www.elastic.co/downloads/elasticsearch
+Get version 5.6 zip file at: https://www.elastic.co/downloads/elasticsearch
+
+** Note ** Make plugin work with version 6
 
 Please do this as a non root user as ES will not run as root.
 
@@ -147,7 +149,6 @@ Clone repo and install bitshares:
 ```
 git clone https://github.com/bitshares/bitshares-core
 cd bitshares-core
-git checkout -t origin/develop
 git submodule update --init --recursive
 BOOST_ROOT=$HOME/opt/boost_1_63_0
 cmake -DBOOST_ROOT="$BOOST_ROOT" -DCMAKE_BUILD_TYPE=RelWithDebInfo .
