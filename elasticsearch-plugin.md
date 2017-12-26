@@ -171,6 +171,8 @@ ES plugin is not active by default, we need to start it with the `plugins` param
 
 `programs/witness_node/witness_node --data-dir data/my-blockprod --rpc-endpoint "127.0.0.1:8090" --plugins "witness elasticsearch market_history" --elasticsearch-bulk-replay 10000 --elasticsearch-logs true --elasticsearch-visitor true`
 
+**Note** `elasticsearch` plugin and `account_history` plugin can not run the 2 at the same time.
+
 ### Checking if it is working
 
 A few minutes after the node start the first batch of 5000 ops will be inserted to the database. If you are in a desktop linux you may want to install https://github.com/mobz/elasticsearch-head and see the database from the web browser to make sure if it is working. This is optional.
