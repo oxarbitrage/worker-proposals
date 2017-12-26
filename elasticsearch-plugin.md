@@ -628,10 +628,10 @@ Remember ES already have all the needed info in the `op` text field of the `oper
 
 By using the `op_type` = `create` on each bulk line we send to the database and as we use an unique ID(ath id(2.9.X)) the plugin will not index any operation twice. If the node is on a replay, the plugin will start adding to database when it find a new record and never before. 
 
-## The future
+## Wrapper
 
-elasticsearch-plugin aims to be included and be part bitshares-core project as a cheaper ram full node alternative to `account_history_plugin` while obtaining the benefits in querying the huge amounts of data present in the blockchain in a new efficient and more versatile way.
+It is not recommended to expose the elasticsearch api fully to the internet. Instead, applications will connect to a wrapper for data:
 
-Plugin should be improved in speed and performance by the developer community and active workers, some basic maintenance will be needed  - ex: if a new operation came in we need to add it to the visitor. Interested third parties can improve it for their own needs.
+https://github.com/oxarbitrage/bitshares-es-wrapper
 
-Market data plugin alternative is the next structure of objects we may want to move to ES. 
+Elasticsearch database will listen in localhost and the wrapper in the same machine will expose the reduced set of API calls to the internet. 
