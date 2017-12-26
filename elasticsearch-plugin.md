@@ -285,7 +285,7 @@ Compare against a tradtional full node:
 [bitshares@lantea ~]$
 ```
 
-Please note start command was with `markets_history` plugin activated, only account data should use even less than 10 gigs. 
+Please note start command was with `markets_history` plugin activated, only consensus data should use even less than 10 gigs. 
 
 What client side apps can do with this new data is kind of unlimited to client developer imagination but lets check some real world examples to see the benefits of this new feature.
 
