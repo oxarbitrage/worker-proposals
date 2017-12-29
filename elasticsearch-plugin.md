@@ -331,6 +331,43 @@ curl -X GET 'http://localhost:9200/graphene-*/data/_search?pretty=true' -d '
 
 Refs: https://github.com/bitshares/bitshares-core/pull/373
 
+The `get_transaction_id` can be done as:
+
+```
+curl -X GET 'http://localhost:9200/graphene-*/data/_search?pretty=true' -d '
+{
+    "query" : {
+        "bool" : { "must" : [{"term": { "block_data.block_num": 19421114}},{"term": { "operation_history.trx_in_block": 0}}] }
+    }
+}
+'
+```
+
+The above will return all ops inside trx, if you only need the trx_id field you can add `source` and just return the fields you need:
+
+```
+curl -X GET 'http://localhost:9200/graphene-*/data/_search?pretty=true' -d '
+{
+    "_source": ["block_data.trx_id"],
+    "query" : {
+        "bool" : { "must" : [{"term": { "block_data.block_num": 19421114}},{"term": { "operation_history.trx_in_block": 0}}] }
+    }
+}
+'
+```
+
+The `get_transaction_from_id` is very easy:
+
+```
+curl -X GET 'http://localhost:9200/graphene-*/data/_search?pretty=true' -d '
+{
+    "query" : {
+        "bool" : { "must" : [{"term": { "block_data.trx_id": "6f2d5064637391089127aa9feb36e2092347466c"}}] }
+    }
+}
+'
+```
+
 ## New stats
 
 After we solve some of the issues needed by the community and generating a framework for future issues of the same kind lets go a bit beyond and explore how rich is to have account data operations stored in ES in regards to stats. This are just a few samples.
