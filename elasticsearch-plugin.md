@@ -302,156 +302,22 @@ https://github.com/bitshares/bitshares-ui/issues/68
 This is one of the issues that has been requested constantly. It can be easily queried with ES plugin by calling the _search endpoint doing:
 
 ```
-root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# curl -X GET 'http://localhost:9200/graphene/data/_search?pretty=true' -d '
+curl -X GET 'http://localhost:9200/graphene-*/data/_search?pretty=true' -d '
 {
     "query" : {
-        "bool" : { "must" : [{"term": { "account_history.account.keyword": "1.2.282"}}, {"range": {"block_data.block_time": {"gte": "2015-10-26T00:00:00", "lte": "2
-015-10-29T23:59:59"}}}] }
+        "bool" : { "must" : [{"term": { "account_history.account.keyword": "1.2.282"}}, {"range": {"block_data.block_time": {"gte": "2015-10-26T00:00:00", "lte": "2015-10-29T23:59:59"}}}] }
     }
 }
 '
-{
-  "took" : 99,
-  "timed_out" : false,
-  "_shards" : {
-    "total" : 5,
-    "successful" : 5,
-    "skipped" : 0,
-    "failed" : 0
-  },
-  "hits" : {
-    "total" : 3,
-    "max_score" : 9.865524,
-    "hits" : [
-      {
-        "_index" : "graphene",
-        "_type" : "data",
-        "_id" : "2.9.121234",
-        "_score" : 9.865524,
-        "_source" : {
-          "account_history" : {
-            "id" : "2.9.121234",
-            "account" : "1.2.282",
-            "operation_id" : "1.11.114383",
-            "sequence" : 11,
-            "next" : "2.9.113951"
-          },
-          "operation_history" : {
-            "trx_in_block" : 0,
-            "op_in_trx" : 0,
-            "operation_results" : "[0,{}]",
-            "virtual_op" : 14811,
-            "op" : "[0,{'fee':{'amount':4210936,'asset_id':'1.3.0'},'from':'1.2.89940','to':'1.2.282','amount':{'amount':2000000,'asset_id':'1.3.535'},'memo':{'from
-':'BTS8LWkZLmsnWjgtT1PNHT5XGAu1z1ueQkBHBQTVfECFVQfD3s7CF','to':'BTS5TPTziKkLexhVKsQKtSpo4bAv5RnB8oXcG4sMHEwCcTf3r7dqE','nonce':'370147387190899','message':'559c6966
-ccf3db2583f9636489c7be0339a88c1703f3b60dde9f165825720486'},'extensions':[]}]"
-          },
-          "operation_type" : 0,
-          "block_data" : {
-            "block_num" : 375534,
-            "block_time" : "2015-10-26T19:37:18",
-            "trx_id" : ""
-          },
-          "fee_data" : {
-            "fee_asset" : "1.3.0",
-            "fee_amount" : "4210936"
-          },
-          "transfer_data" : {
-            "transfer_asset_id" : "1.3.535",
-            "transfer_amount" : "2000000"
-          }
-        }
-      },
-      {
-        "_index" : "graphene",
-        "_type" : "data",
-        "_id" : "2.9.143682",
-        "_score" : 9.720996,
-        "_source" : {
-          "account_history" : {
-            "id" : "2.9.143682",
-            "account" : "1.2.282",
-            "operation_id" : "1.11.136390",
-            "sequence" : 13,
-            "next" : "2.9.126760"
-          },
-          "operation_history" : {
-            "trx_in_block" : 0,
-            "op_in_trx" : 0,
-            "operation_results" : "[0,{}]",
-            "virtual_op" : 36818,
-            "op" : "[0,{'fee':{'amount':4335936,'asset_id':'1.3.0'},'from':'1.2.376','to':'1.2.282','amount':{'amount':1010000,'asset_id':'1.3.535'},'memo':{'from':
-'BTS6zT2XD7YXJpAPyRKq8Najz4R5ut3tVMEfK8hqUdLBbBRjTjjKy','to':'BTS5TPTziKkLexhVKsQKtSpo4bAv5RnB8oXcG4sMHEwCcTf3r7dqE','nonce':'370212206009967','message':'02b9072a43
-b3e1ed960e7710b227984600b17fa3d6837bed56fba07e69c6e2793eac9ea7d3851eb48b04e9ab48933900996b00016d2f145808d30dc81e61232f1b29afb38caf1361e46927d8749826a26435bd9a227533
-d5f1b181bfca5e26ac'},'extensions':[]}]"
-          },
-          "operation_type" : 0,
-          "block_data" : {
-            "block_num" : 459202,
-            "block_time" : "2015-10-29T17:57:18",
-            "trx_id" : ""
-          },
-          "fee_data" : {
-            "fee_asset" : "1.3.0",
-            "fee_amount" : "4335936"
-          },
-          "transfer_data" : {
-            "transfer_asset_id" : "1.3.535",
-            "transfer_amount" : "1010000"
-          }
-        }
-      },
-      {
-        "_index" : "graphene",
-        "_type" : "data",
-        "_id" : "2.9.126760",
-        "_score" : 9.720996,
-        "_source" : {
-          "account_history" : {
-            "id" : "2.9.126760",
-            "account" : "1.2.282",
-            "operation_id" : "1.11.119823",
-            "sequence" : 12,
-            "next" : "2.9.121234"
-          },
-          "operation_history" : {
-            "trx_in_block" : 0,
-            "op_in_trx" : 0,
-            "operation_results" : "[0,{}]",
-            "virtual_op" : 20251,
-            "op" : "[0,{'fee':{'amount':4000000,'asset_id':'1.3.0'},'from':'1.2.96086','to':'1.2.282','amount':{'amount':78970118,'asset_id':'1.3.0'},'extensions':[
-]}]"
-          },
-          "operation_type" : 0,
-          "block_data" : {
-            "block_num" : 394952,
-            "block_time" : "2015-10-27T11:51:30",
-            "trx_id" : ""
-          },
-          "fee_data" : {
-            "fee_asset" : "1.3.0",
-            "fee_amount" : "4000000"
-          },
-          "transfer_data" : {
-            "transfer_asset_id" : "1.3.0",
-            "transfer_amount" : "78970118"
-          }
-        }
-      }
-    ]
-  }
-}
-root@NC-PH-1346-07:~/bitshares/elastic/bitshares-core# 
 ```
+**Note** Response is removed from the samples to save space in the document. If you are here you may want to see the response in your own place. 
 
-more samples here ...
+### Filter based on block number or block range
 
-### Get operations by account and block
-
-References:
 https://github.com/bitshares/bitshares-core/issues/61
 
 ```
-root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_search?pretty=true' -d '
+curl -X GET 'http://localhost:9200/graphene-*/data/_search?pretty=true' -d '
 {
     "query" : {
         "bool" : { "must" : [{"term": { "account_history.account.keyword": "1.2.356589"}}, {"range": {"block_data.block_num": {"gte": "17824289", "lte": "17824290"}                                                                                                                  
@@ -459,61 +325,6 @@ root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_search?p
     }
 }
 '
-{
-  "took" : 284,
-  "timed_out" : false,
-  "_shards" : {
-    "total" : 5,
-    "successful" : 5,
-    "skipped" : 0,
-    "failed" : 0
-  },
-  "hits" : {
-    "total" : 1,
-    "max_score" : 15.487353,
-    "hits" : [
-      {
-        "_index" : "graphene",
-        "_type" : "data",
-        "_id" : "2.9.35267898",
-        "_score" : 15.487353,
-        "_source" : {
-          "account_history" : {
-            "id" : "2.9.35267898",
-            "account" : "1.2.356589",
-            "operation_id" : "1.11.34664169",
-            "sequence" : 2,
-            "next" : "2.9.34665677"
-          },
-          "operation_history" : {
-            "trx_in_block" : 1,
-            "op_in_trx" : 0,
-            "operation_results" : "[0,{}]",
-            "virtual_op" : 27469,
-            "op" : "[0,{'fee':{'amount':22941,'asset_id':'1.3.0'},'from':'1.2.152768','to':'1.2.356589','amount':{'amount':100000000,'asset_id':'1.3.0'},'memo':{'fr
-om':'BTS6o6byTjfThztXDD4nhzV6tR4MpjRaLVmkfiDCiTeeJfmQNKCHb','to':'BTS6kY7wQtCAbagTj8YmyRXBDTrdLra6Qh8F4oucCiqZRMAWtMPif','nonce':'383662087143284','message':'57bd2a
-f0f786557ed343b76c37ac3b59'},'extensions':[]}]"
-          },
-          "operation_type" : 0,
-          "block_data" : {
-            "block_num" : 17824289,
-            "block_time" : "2017-06-28T19:59:51",
-            "trx_id" : ""
-          },
-          "fee_data" : {
-            "fee_asset" : "1.3.0",
-            "fee_amount" : "22941"
-          },
-          "transfer_data" : {
-            "transfer_asset_id" : "1.3.0",
-            "transfer_amount" : "100000000"
-          }
-        }
-      }
-    ]
-  }
-}
-root@NC-PH-1346-07:~#
 ```
 
 ### Get operations by transaction hash
