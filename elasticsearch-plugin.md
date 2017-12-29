@@ -368,105 +368,13 @@ curl -X GET 'http://localhost:9200/graphene-*/data/_search?pretty=true' -d '
 '
 ```
 
-## New stats
+## Going forward
 
-After we solve some of the issues needed by the community and generating a framework for future issues of the same kind lets go a bit beyond and explore how rich is to have account data operations stored in ES in regards to stats. This are just a few samples.
+The reader will need to learn more about elasticsearch and lucene query language in order to make more complex queries.
 
-### Get total ops
+All needed can be found at https://www.elastic.co/guide/en/elasticsearch/reference/5.5/index.html
 
-- get total all history ops by type.
-```
-root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
-{
-    "query" : {
-        "bool" : { "must" : [ {"term": {"operation_type": "34"}}] }
-    }
-}
-'
-{
-  "count" : 63,
-  "_shards" : {
-    "total" : 5,
-    "successful" : 5,
-    "skipped" : 0,
-    "failed" : 0
-  }
-}
-root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
-{
-    "query" : {
-        "bool" : { "must" : [ {"term": {"operation_type": "0"}}] }
-    }
-}
-'
-{
-  "count" : 1225858,
-  "_shards" : {
-    "total" : 5,
-    "successful" : 5,
-    "skipped" : 0,
-    "failed" : 0
-  }
-}
-root@NC-PH-1346-07:~# 
-```
-- get total ops in a period of time. 
-
-```
-root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
-{
-    "query" : {
-        "bool" : { "must" : [ {"term": {"operation_type": "0"}}, {"range": {"block_data.block_time": {"gte": "2017-01-01T00:00:00", "lte": "2017-09-01T00:00:00"}}}]
- }   
-    }
-}
-'
-{
-  "count" : 697324,
-  "_shards" : {
-    "total" : 5,
-    "successful" : 5,
-    "skipped" : 0,
-    "failed" : 0
-  }
-}
-root@NC-PH-1346-07:~# curl -X GET 'http://localhost:9200/graphene/data/_count?pretty=true' -d '
-{
-    "query" : {
-        "bool" : { "must" : [ {"term": {"operation_type": "0"}}, {"range": {"block_data.block_time": {"gte": "2017-08-25T00:00:00", "lte": "2017-09-01T00:00:00"}}}]
- }
-    }
-}
-'
-{
-  "count" : 25872,
-  "_shards" : {
-    "total" : 5,
-    "successful" : 5,
-    "skipped" : 0,
-    "failed" : 0
-  }
-}
-root@NC-PH-1346-07:~# 
-```
-
-- get total ops by type inside a range of blocks.
-
-### Get speed data
-
-- ops per second
-- trxs per second
-
-### Get fee data
-
-- total collected fee
-- total colected fee for op type
-- total fees collected this month
-- total fee collected in asset
-
-### Transfer data
-
-- get amount transfered from account to account.
+By the same team of elasticsearch there is a front end named `kibana` (https://www.elastic.co/products/kibana). It is very easy to install and can do pretty good stuff like getting very detailed stats of the blockchain network.
 
 ### More visitor code = more indexed data = more filters to use
 
