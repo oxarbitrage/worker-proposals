@@ -1,6 +1,7 @@
 # Alfredo Garcia - Bitshares core developer
 
 Author: oxarbitrage
+
 https://github.com/oxarbitrage/
 
 ## Background
