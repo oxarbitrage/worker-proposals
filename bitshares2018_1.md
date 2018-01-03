@@ -30,14 +30,14 @@ The command line wallet is where other programs and individuals connect to inter
 In this period the worker will at least implement 1 BSIP(not decided witch one yet). It will participate and help any other dev working in a BSIP with testing, code review, etc. The worker will also write at least 1 BSIP more and participate in the BSIP discussions with implementation teams or individuals. 
 
 - **release and hardfork planning:**
-With the last hardfork the worker was able to learn the process to plan a new one when needed. Releases are already being made by this worker, we had made a plan to add code to our repos that this worker applies and instruct new devs do adapt to this rules.
-This point include witnesses help at hardfork and coordination. 
+With the last hardfork the worker was able to learn the process to plan a new one when needed. Releases are already being made by this worker, we have a flow plan to add code to our branches that this worker applies and instruct new devs to adapt to this rules.
+This point include helping witnesses at hardfork time and coordination.
 
 - **bitshares documentation:**
-Always improving documentation in the bitshares wiki pages, in docs.bitshares.org and any other sources. The worker takes note of everything while developing so new documentation naturally evolve from this notes. As changes are added to the different pats of the project the documentation need to be constantly updated. 
+Always improving documentation in the bitshares wiki pages, in docs.bitshares.org and any other official source. The worker takes note of everything while developing so new documentation naturally evolve from this notes. As changes are added to the different pats of the project the documentation need to be constantly updated. 
 
 - **tools for other devs / integration:**
-In the last time i made different wrapper tools to help the integration of bitshares with other apps. This kind of tools are very needed as they speed up the work of developers that want to make business on top of the chain. It is important that new application developers can get started as soon as possible with the use of this tools.
+In the last time i made different wrapper tools to help the integration of bitshares with other apps. This kind of tools are very needed as they speed up the work of developers that want to make business on top of the chain. More integration script and tools will be developed in this period as they are needed while maintaining the existing code already made.
 
 - **review and help with third party open source tools related to bitshares**
 When developers are creating new tools that will contribute with the grow of the ecosystem this worker will help them reviewing their work, helping to get the data they need from the chain, make their learning curve a bit easier when starting with bitshares.
