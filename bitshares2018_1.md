@@ -34,7 +34,7 @@ With the last hardfork the worker was able to learn the process to plan a new on
 This point include helping witnesses at hardfork time and coordination.
 
 - **bitshares documentation:**
-Always improving documentation in the bitshares wiki pages, in docs.bitshares.org and any other official source. The worker takes note of everything while developing so new documentation naturally evolve from this notes. As changes are added to the different pats of the project the documentation need to be constantly updated. 
+Always improving documentation in the bitshares wiki pages, in docs.bitshares.org and any other official source. The worker takes note of everything while developing so new documentation naturally evolve from this notes. As changes are added to the different parts of the project the documentation need to be constantly updated. 
 
 - **tools for other devs / integration:**
 In the last time i made different wrapper tools to help the integration of bitshares with other apps. This kind of tools are very needed as they speed up the work of developers that want to make business on top of the chain. More integration script and tools will be developed in this period as they are needed while maintaining the existing code already made.
