@@ -84,6 +84,14 @@ Calculation:
 
 31845 / 30 = 715 bts per day
 
-**Note:** worker will not receive 21450 bts per month but exactly 6600 bitusd with the escrow setup. Remaining bts(if any) will be burned back to the network or keeped in the worker escrow account if there is a plan to renew in 6 months.
-If at some point the escrow can't buy enough bitusd to make the payment the worker will submit a new worker proposal that the stakeholders will need to approve.
+## Updates:
+
+Report of work done by the worker will be posted in the forum thread of it [link to thread]
+
+Updates will ve every 2 weeks as i realized it is better than every 1 week.
+
+## Notes:
+
+- worker will not receive 21450 bts per month but exactly 6600 bitusd with the escrow setup. Remaining bts(if any) will be burned back to the network or keeped in the worker escrow account as backup(open discussion of this at [link to worker thread]
+- If at some point the escrow can't buy enough bitusd to make the payment the worker will submit a new worker proposal that the stakeholders will need to approve.
 
