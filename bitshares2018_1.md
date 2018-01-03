@@ -26,7 +26,7 @@ The coordination with the `bitshares-ui` to create the calls they need to make u
 - **the cli wallet:**
 The command line wallet is where other programs and individuals connect to interact with the chain. This new period i plan to extend trading capabilities of the cli_wallet to make it a full trading command line workstation.
 
-- **big improvements and BSIPs **:
+- **big improvements and BSIPs:**
 In this period the worker will at least implement 1 BSIP(not decided witch one yet). It will participate and help any other dev working in a BSIP with testing, code review, etc. The worker will also write at least 1 BSIP more and participate in the BSIP discussions with implementation teams or individuals. 
 
 - **release and hardfork planning:**
