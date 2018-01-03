@@ -10,7 +10,7 @@ I had been working hired by the bitshares blockchain for the last 6 months mainl
 
 Most of that work(but not all) can be found in the links inside the worker proposal thread https://bitsharestalk.org/index.php/topic,24540.0.html that it is about to expire.
 
-This worker proposal is a renew of the previous one at very similar rate and scope.
+This worker proposal is a renew of the previous one at very similar rate and scope. The plan is to continue what we had been doing in 2017 as the grow and success of Bitshares has demonstrated we are in the right track.
 
 ## Worker Scope:
 
