@@ -72,7 +72,7 @@ fox
 lin9uxis
 ```
 
-Current worker ends on Jan 8th. I am taking some small vacations from Jan 13th to Jan 21th so the new worker will start Monday Jan 22th and end Saturday 22 of July.
+Current worker ends on Jan 8th. I am taking some small vacations from Jan 13th to Jan 21th so the new worker will start Monday Jan 22th and end Sunday 22 of July.
 
 Calculation:
 
