@@ -86,12 +86,12 @@ Calculation:
 
 ## Updates:
 
-Report of work done by the worker will be posted in the forum thread of it [link to thread]
+Report of work done by the worker will be posted in the forum thread of it https://bitsharestalk.org/index.php/topic,25713.0.html
 
 Updates will ve every 2 weeks as i realized it is better than every 1 week.
 
 ## Notes:
 
-- worker will not receive 21450 bts per month but exactly 6600 bitusd with the escrow setup. Remaining bts(if any) will be burned back to the network or keeped in the worker escrow account as backup(open discussion of this at [link to burnback thread]
+- worker will not receive 21450 bts per month but exactly 6600 bitusd with the escrow setup. Remaining bts(if any) will be burned back to the network or keeped in the worker escrow account as backup(open discussion of this at https://bitsharestalk.org/index.php/topic,25714.0.html
 - If at some point the escrow can't buy enough bitusd to make the payment the worker will submit a new worker proposal that the stakeholders will need to approve.
 
