@@ -1,4 +1,4 @@
-# Alfredo Garcia - Bitshares core developer
+# Alfredo Garcia - Bitshares core developer - 1.14.75
 
 Author: oxarbitrage
 
