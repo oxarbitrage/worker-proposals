@@ -1,0 +1,28 @@
+The bitshares core team is releasing a new bitshares-core version with the work done in the last 1 month period(aprox). The release version has been tested by the majority of active bitshares witnesses and there is no report of problems.
+
+All nodes are recommended to upgrade but the release specially targets API nodes. The nodes exposed to the internet are recommended to upgrade as soon as possible to avoid DoS attack fixed in this release.
+
+### Changes
+
+- A new api call `get_account_history_by_operations` was added to the rpc api and the cli_wallet. (https://github.com/bitshares/bitshares-core/pull/430)
+- Dockerfiles were updated by @xeroc who is in charge of docker containers in the bitshares-core project. https://github.com/bitshares/bitshares-core/pull/568
+- `double` types were removed from the market api. https://github.com/bitshares/bitshares-core/pull/594
+- Added fix to charting related issues https://github.com/bitshares/bitshares-core/pull/571
+- Fixed bug in `vote_id_type` https://github.com/bitshares/bitshares-core/pull/578
+- HARDFORK_CORE_353 cleanup by @pmconrad https://github.com/bitshares/bitshares-core/pull/574
+- `get_required_signatures` API call fixes https://github.com/bitshares/bitshares-core/pull/570
+- changes in proposal index: https://github.com/bitshares/bitshares-core/pull/551
+- FC bug fix: https://github.com/bitshares/bitshares-fc/pull/9
+- Changing `assert` to `FC_ASSERT` as recommended by steem.(need to change some more places). FC bumpted to last version at https://github.com/bitshares/bitshares-core/pull/593
+- Some other minor changes include a small type in an asser text: https://github.com/bitshares/bitshares-core/pull/557/, updates in the main readme:https://github.com/bitshares/bitshares-core/pull/562/files, a small build issue fixed: https://github.com/bitshares/bitshares-core/pull/589, database bump to force replay: https://github.com/bitshares/bitshares-core/pull/602
+
+Contributors in this release:
+
+- @abitmore
+- @pmconrad
+- @xeroc
+- @oxarbitrage
+- @takaaki7
+- @zhuliting
+- @lubos.ilcik
+- @Ashaman-
