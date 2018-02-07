@@ -151,4 +151,6 @@ The `cli_wallet` is part of the `bitshares-core` project and use a websocket add
 
 Connect the `cli_wallet` to your node with a command like:
 
-`cli wallet start basic command`
+`./programs/cli_wallet/cli_wallet -s wss://bit.btsabc.org/wss`
+
+For more info on the command line wallet see: https://github.com/cryptonomex/graphene/wiki/CLI-Wallet-Cookbook
