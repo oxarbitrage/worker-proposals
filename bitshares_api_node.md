@@ -137,11 +137,31 @@ It is possible to make rpc calls with php, python, javascript just to name a few
 
 ### Websocket
 
-From the command line bitshares developers use wscat tool to connect to an api node. The main difference with the websocket against the rpc calls is that the websocket can sendback updates in real time if you are subscribed to an event. Lets see how that works with an example:
+From the command line bitshares developers use wscat tool to connect to an api node. The main difference with the websocket against the rpc calls is that the websocket can sendback updates in real time if you are subscribed to an event. Lets see how that works with an example. 
 
+Connect to a bitshares node with `wscat`:
+
+`wscat -c wss://bit.btsabc.org/wss`
+
+If you see the following the program is waiting for commands:
+```
+connected (press CTRL+C to quit)
+> 
+```
+
+Log in to access restricted apis:
+
+```
+```
+
+Subscribe to network events and receive data in real time:
 ```
 example for wscat receiving real time data
 ```
+
+More on websocket subscriptions here: https://github.com/bitshares/bitshares-core/wiki/Websocket-Subscriptions
+
+For scripting websockets we recommend using `wsdump`, very similar tool as `wscat` but easier to make scripting over it. More info at https://github.com/bitshares/bitshares-core/wiki/Scripting-websockets-easy
 
 The same as with the rpc calls almost all languages will have a built in or addon to work with a websocket.
 
