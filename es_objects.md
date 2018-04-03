@@ -238,7 +238,7 @@ This plugin will make this orders to persist, so a simple search by the id to th
 
 `curl -XGET 'http://localhost:9200/bitshares-limitorder/data/1.7.9126?pretty=true'`
 
-Note: When the limit order is created and filled in the same block the original limit order will not be saved! This will be fixed in the next plugin upgrade.
+**Note:** When the limit order is created and filled in the same block the original limit order will not be saved! This will be fixed in the next plugin upgrade.
 
 
 ### Track feeds:
@@ -258,7 +258,7 @@ the past by getting the last feed of that range, something as:
 
 `curl -XGET 'http://localhost:9200/bitshares-bitasset/data/_search?pretty=true' -d '{"query":{"bool":{"must":[{"term":{"object_id.keyword":"2.4.13"}},{"range":{"current_feed_publication_time":{"gt":"2016-05-24T11:36:34","lt":"2016-05-24T18:48:34"}}}],"must_not":[],"should":[]}},"from":0,"size":1,"sort":[{"current_feed_publication_time": {"order" : "desc"}}],"aggs":{}}'`
 
-Note: Several feeds came in the same second, need to make sure we are actually getting the last result, maybe need to add a seq number to the table.
+**Note:** Several feeds came in the same second, need to make sure we are actually getting the last result, maybe need to add a seq number to the table.
 
 ### Asset tracking:
 
@@ -282,7 +282,7 @@ To get actual assets instead of count change the api endpoint from _count to _se
 
 ### Balance tracking:
 
-Under development. Need to save `account_balance` instead of `balance`.
+**Note:** Under development. Need to save `account_balance` instead of `balance`.
 
 
 ## Future:
