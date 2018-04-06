@@ -24,7 +24,7 @@ Once the proposal is active ...
 
 ### Execution
 
-### Real worls applications
+## Real worls applications
 
 ### Escrow
 
