@@ -44,7 +44,7 @@ Debt if we do that: 25,800 - 7,200 = 18,600
 
 ## Ending 2 weeks earlier:
 
-The core team has proposed to end this worker earlier and join the core worker inmediatly, 2 weeks before the end of the contract.
+The core team has proposed to end this worker earlier and join the core worker immediately, 2 weeks before the end of the contract.
 
 means, 6600/2 = 3300 usd for the last month.
 
@@ -76,7 +76,7 @@ End Date: 2018-07-20
 BTS Per day: 20000 BTS
 
 At current rates of 0,18 USD per BTS supplemental worker will collect 100000 BTS that will be 18,000 USD. We only need 14,800 usd at today rates but we need to cover in case BTS price drops below.
-All non used BTS will be burned back to the chain, escrow group is fully compromized on this.
+All non used BTS will be burned back to the chain, escrow group is fully compromised on this.
 
 The supplemental worker proposal was considered since the beggining at: https://github.com/oxarbitrage/worker-proposals/blob/master/bitshares2018_1.md#notes
 We hope the stakeholders understand and approve this worker.
