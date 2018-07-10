@@ -79,4 +79,7 @@ At current rates of 0,18 USD per BTS supplemental worker will collect 100000 BTS
 All non used BTS will be burned back to the chain, escrow group is fully compromised on this.
 
 The supplemental worker proposal was considered since the beggining at: https://github.com/oxarbitrage/worker-proposals/blob/master/bitshares2018_1.md#notes
-We hope the stakeholders understand and approve this worker.
+
+The expiring worker was the most voted worker proposal in the history of bitshares, we hope the stakeholders that trusted on it  before understand the importance of this and approve this supplemental worker to cover the debt, this is a worker that we tried to avoid at all cost speculating on a recovery of the price that never happened.
+
+
