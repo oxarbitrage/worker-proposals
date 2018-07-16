@@ -9,4 +9,4 @@
 7) Dont ask the same question in every comuinication channel we have, never tag all the developers.
 8) Avoid generic programming questions always possible(some could be acceptable), resolve those yourself by research.
 9) The core team will help and welcome new comers if they can prove ability to self manage and solve c++ programming issues. 
-10) 
+10) In a pull request prefer a history of commits instead of replacing the same commit to make review process easier by knowing what had been changed.
